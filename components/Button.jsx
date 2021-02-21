@@ -21,5 +21,9 @@ export default function Button(props) {
   ${text}
   `;
 
-	return <button className={btnClass}>{children}</button>;
+	return (
+		<button {...props} className={btnClass}>
+			{children}
+		</button>
+	);
 }

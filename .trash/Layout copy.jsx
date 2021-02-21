@@ -28,10 +28,10 @@ export default function Layout(props) {
 			<main
 				{...props}
 				className={
-					"max-w-6xl mx-auto h-full w-full p-5 py-10" + className
+					"max-w-6xl mx-auto h-full w-full p-5 py-10 my-5" + className
 				}>
 				{!noTitle && (
-					<div className='relative z-10 flex mb-5'>
+					<div className='flex relative z-10 mb-5'>
 						<div role='button' className='px-5'>
 							<Link href={back}>
 								<div className='overflow-hidden'>
@@ -39,7 +39,7 @@ export default function Layout(props) {
 										initial={{ x: 50 }}
 										animate={{ x: 0 }}
 										role='button'
-										className='w-full h-full font-mono text-5xl'>
+										className='w-full h-full text-5xl font-mono'>
 										{"<"}
 									</motion.h1>
 								</div>

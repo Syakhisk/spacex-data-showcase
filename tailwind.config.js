@@ -4,6 +4,16 @@ module.exports = {
 	purge: [],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
+		filter: {
+			none: "none",
+			grayscale: "grayscale(1)",
+			invert: "invert(1)",
+			sepia: "sepia(1)",
+		},
+		backdropFilter: {
+			none: "none",
+			blur: "blur(20px)",
+		},
 		colors: {
 			transparent: "transparent",
 			current: "currentColor",
@@ -39,7 +49,9 @@ module.exports = {
 		},
 	},
 	variants: {
-		extend: {},
+		extend: {
+			fontSize: ["group-hover"],
+		},
 	},
-	plugins: [],
+	plugins: [require("tailwindcss-filters")],
 };
