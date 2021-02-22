@@ -26,7 +26,7 @@ export default function RocketContainer(props) {
 
 	return (
 		<>
-			<Link href={`rockets/${item.id}`}>
+			<Link key={idx} href={`rockets/${item.id}`}>
 				<div
 					key={idx}
 					onMouseEnter={() => handleBgChange(getRandom(item.flickr_images))}

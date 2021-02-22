@@ -8,16 +8,18 @@ const http = axios.create({
 });
 
 /* -------------------------------- handling -------------------------------- */
-// same as:
-// const getAllRockets = async () => {
-// 	try {
-// 		const res = await http.get("/rocket");
-// 		return res;
-// 	} catch (error) {
-// 		console.log(error);
-// 		return "";
-// 	}
-// };
+/* 
+same as:
+const getAllRockets = async () => {
+	try {
+		const res = await http.get("/rocket");
+		return res;
+	} catch (error) {
+		console.log(error);
+		return "";
+	}
+};
+*/
 
 const withHandling = async (f) => {
 	try {
@@ -55,9 +57,24 @@ const getCrew = async (id) =>
 		return res;
 	});
 
+/* -------------------------------- launches -------------------------------- */
+const getAllLaunches = async () =>
+	withHandling(async () => {
+		const res = await http.get("/launches");
+		return res;
+	});
+
+const getLaunch = async (id) =>
+	withHandling(async () => {
+		const res = await http.get(`/launches/${id}`);
+		return res;
+	});
+
 export default {
 	getAllRockets,
 	getRocket,
 	getAllCrews,
 	getCrew,
+	getAllLaunches,
+	getLaunch,
 };

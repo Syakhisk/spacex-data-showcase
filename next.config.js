@@ -9,6 +9,8 @@ module.exports = {
 			"farm4.staticflickr.com",
 			"farm5.staticflickr.com",
 			"farm6.staticflickr.com",
+			"i.imgur.com",
+			"imgur.com",
 		],
 	},
 };

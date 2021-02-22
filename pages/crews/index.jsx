@@ -2,6 +2,7 @@ import Layout from "../../components/Layout";
 import ContainerCrew from "../../components/ContainerCrew";
 import spaceX from "../../services/spaceX";
 import { motion } from "framer-motion";
+import { Duotone } from "../../components/filters";
 
 function Crews(props) {
 	const { crews } = props;
@@ -27,7 +28,8 @@ function Crews(props) {
 	};
 
 	return (
-		<Layout title='Crews 👩‍🚀'>
+		<Layout title='Crews 👩‍🚀' pageTitle="SpaceX - Crews 👩‍🚀">
+			{/* <Duotone /> */}
 			<motion.div
 				layout
 				variants={parentVariant}

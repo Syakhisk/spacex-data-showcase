@@ -3,6 +3,7 @@ import { useState } from "react";
 import Layout from "../../components/Layout";
 import RocketContainer from "../../components/RocketContainer";
 import spaceX from "../../services/spaceX";
+import Image from "next/image";
 
 export default function Rockets({ rockets }) {
 	const [activeImage, setActiveImage] = useState("");
@@ -23,11 +24,10 @@ export default function Rockets({ rockets }) {
 		<Layout title='Rockets 🚀' pageTitle='SpaceX - Rockets 🚀'>
 			<div className='fixed top-0 right-0 z-0 w-screen h-screen'>
 				{activeImage && (
-					<img
+					<Image
+						layout='fill'
 						className={`object-cover w-full h-full backdrop-blur transition-opacity duration-300 ${imageOpacity}`}
-						// className={`object-cover w-full h-full backdrop-blur transition-opacity ${
-						// 	activeImage ? "opacity-10" : "opacity-0"
-						// }`}
+						// className={`object-cover w-full h-full backdrop-blur transition-opacity duration-300 ${imageOpacity}`}
 						src={activeImage}
 					/>
 				)}

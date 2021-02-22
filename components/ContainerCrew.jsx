@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Duotone } from "./filters";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -17,12 +18,11 @@ export default function ContainerCrew(props) {
 				onMouseLeave={() => setIsImageHover(false)}>
 				<div className='relative flex overflow-hidden h-96 md:h-80 rounded-tl-3xl rounded-br-3xl ring-2 ring-red-500'>
 					<Duotone />
-					<img
-						className='absolute z-0 object-cover object-center w-full h-full'
+					<div
 						style={imgStyle}
-						src={crew.image}
-						alt=''
-					/>
+						className='absolute z-0 object-cover object-center w-full h-full'>
+						<Image layout='fill' objectFit='cover' src={crew.image} />
+					</div>
 					<div className='absolute w-full h-full bg-gradient-to-t from-gray-900'></div>
 					<div className='self-end p-5 font-mono text-xl relative z-auto '>
 						<h6 className='text-sm text-red-500'>{crew.agency}</h6>

@@ -8,15 +8,21 @@ import "@fontsource/nunito-sans";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Layout(props) {
+	const router = useRouter();
+	const { backTo } = router.query;
+
 	const {
 		pageTitle = "SpaceX Data Showcase",
 		title,
 		children,
 		className = "",
-		back = "/",
+		back = "/home",
 		noTitle = false,
+		full = false,
+		...rest
 	} = props;
 
 	return (
@@ -26,14 +32,14 @@ export default function Layout(props) {
 			</Head>
 
 			<main
-				{...props}
-				className={
-					"max-w-6xl mx-auto h-full w-full p-5 py-10" + className
-				}>
+				{...rest}
+				className={`max-w-6xl mx-auto p-5 py-10 ${className} ${
+					full ? "w-full h-full" : ""
+				}`}>
 				{!noTitle && (
 					<div className='relative z-10 flex mb-5'>
 						<div role='button' className='px-5'>
-							<Link href={back}>
+							<Link href={backTo ? backTo : back}>
 								<div className='overflow-hidden'>
 									<motion.h1
 										initial={{ x: 50 }}
