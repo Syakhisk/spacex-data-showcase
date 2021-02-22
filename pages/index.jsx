@@ -1,4 +1,3 @@
-import Button from "../components/Button";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
@@ -28,20 +27,22 @@ const Home = (props) => {
 				initial='init'
 				animate='anim'
 				className='flex flex-col items-center justify-center w-full h-full space-y-5'>
-				<div>
-					<motion.h1
-						layoutId='spaceX'
-						variants={scaleUp}
-						className='text-4xl text-center text-red-500'>
-						SpaceX
-					</motion.h1>
-					<motion.h2
-						variants={scaleUp}
-						onAnimationComplete={() => landingItems.start(landingItemsAnim)}
-						className='text-center '>
-						Data showcase
-					</motion.h2>
-				</div>
+				<Link href="/">
+					<div>
+						<motion.h1
+							layoutId='spaceX'
+							variants={scaleUp}
+							className='text-4xl text-center text-red-500'>
+							SpaceX
+						</motion.h1>
+						<motion.h2
+							variants={scaleUp}
+							onAnimationComplete={() => landingItems.start(landingItemsAnim)}
+							className='text-center '>
+							Data showcase
+						</motion.h2>
+					</div>
+				</Link>
 
 				<motion.div
 					initial={landingItemsInit}

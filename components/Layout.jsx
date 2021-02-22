@@ -34,7 +34,7 @@ export default function Layout(props) {
 
 			<main
 				{...rest}
-				className={`max-w-6xl mx-auto p-5 py-10 flex flex-col h-full ${className} ${
+				className={`max-w-6xl mx-auto p-5 py-10 flex flex-col h-full select-none ${className} ${
 					full ? "w-full " : ""
 				}`}>
 				{!noTitle && (
