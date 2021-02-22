@@ -1,8 +1,8 @@
-import Layout from "../../components/Layout";
-import ContainerCrew from "../../components/ContainerCrew";
-import spaceX from "../../services/spaceX";
+import Layout from "../components/Layout";
+import ContainerCrew from "../components/ContainerCrew";
+import spaceX from "../services/spaceX";
 import { motion } from "framer-motion";
-import { Duotone } from "../../components/filters";
+import { Duotone } from "../components/filters";
 
 function Crews(props) {
 	const { crews } = props;
@@ -35,7 +35,7 @@ function Crews(props) {
 				variants={parentVariant}
 				initial='init'
 				animate='anim'
-				className='grid flex-grow grid-cols-1 gap-12 rounded md:grid-cols-3 xl:grid-cols-5 place-content-center mb-10'>
+				className='grid flex-grow grid-cols-2 gap-12 rounded md:grid-cols-3 xl:grid-cols-5 place-content-center mb-10'>
 				{crews.map((crew, idx) => (
 					<ContainerCrew crew={crew} idx={idx} variants={containerVariant} />
 				))}

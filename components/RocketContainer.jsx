@@ -1,6 +1,7 @@
 import cntl from "cntl";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { scaleUp } from "../lib/variants";
 
 export default function RocketContainer(props) {
 	const { item, idx, handleBgChange } = props;
@@ -27,7 +28,8 @@ export default function RocketContainer(props) {
 	return (
 		<>
 			<Link key={idx} href={`rockets/${item.id}`}>
-				<div
+				<motion.div
+					variants={scaleUp}
 					key={idx}
 					onMouseEnter={() => handleBgChange(getRandom(item.flickr_images))}
 					onMouseLeave={() => handleBgChange("")}
@@ -47,7 +49,7 @@ export default function RocketContainer(props) {
 							{item.first_flight}
 						</span>
 					</div>
-				</div>
+				</motion.div>
 			</Link>
 		</>
 	);

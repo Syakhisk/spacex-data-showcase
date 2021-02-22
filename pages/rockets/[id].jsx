@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Layout from "../../components/Layout";
-import { parent, scaleUp } from "../../lib/variants";
+import { fade, parent, scaleUp } from "../../lib/variants";
 import spaceX from "../../services/spaceX";
 import Image from "next/image";
 
@@ -10,31 +10,38 @@ function SingleRocket(props) {
 	return (
 		<Layout
 			pageTitle={`${rocket.name} - Rocket`}
-			title = 'Rockets 🚀'
-			back = '/rockets'
+			title='Rockets 🚀'
+			back='/rockets'
 			className='flex flex-col overflow-hidden'>
 			<article className='grid w-full grid-cols-1 p-5 bg-gray-900 lg:grid-cols-2 rounded-2xl'>
 				<motion.aside
 					variants={parent}
 					initial='init'
 					animate='anim'
-					className='order-1 grid grid-cols-2 gap-5 p-5 overflow-y-auto auto-rows-min px-auto place-items-center'>
+					// className='order-1 grid grid-cols-2 gap-5 p-5 overflow-y-auto auto-rows-min px-auto place-items-center'>
+					className='order-1 grid grid-cols-2 gap-5 p-5'>
 					{rocket.flickr_images.map((img, idx) => (
 						<motion.div
 							variants={scaleUp}
 							key={idx}
 							className='overflow-hidden ring rounded-tl-xl rounded-br-xl'>
-							<Image
-								// layout='fill'
-								loading='lazy'
-								height={500}
-								width={500}
-								src={img}
-							/>
+							<div className='relative object-cover w-full h-60 lg:h-full lg:w-96'>
+								<Image
+									layout='fill'
+									objectFit='cover'
+									className='object-center'
+									loading='lazy'
+									src={img}
+								/>
+							</div>
 						</motion.div>
 					))}
 				</motion.aside>
-				<aside className='order-0 lg:order-2 w-full space-y-3'>
+				<motion.aside
+					variants={scaleUp}
+					initial='init'
+					animate='anim'
+					className='order-0 lg:order-2 w-full space-y-3'>
 					<section>
 						<span className='font-mono text-sm text-gray-500'>Name</span>
 						<h2 className='font-mono text-5xl font-bold'>{rocket.name}</h2>
@@ -118,7 +125,7 @@ function SingleRocket(props) {
 						<span className='font-mono text-sm text-gray-500'>Country</span>
 						<p className='font-mono text-gray-300 '>{rocket.country}</p>
 					</section>
-				</aside>
+				</motion.aside>
 			</article>
 		</Layout>
 	);

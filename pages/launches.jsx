@@ -1,10 +1,11 @@
+import dayz from "dayjs";
+import { motion } from "framer-motion";
+import Link from "next/link";
 import { useMemo } from "react";
 import { usePagination, useTable } from "react-table";
-import Layout from "../../components/Layout";
-import spaceX from "../../services/spaceX";
-import Link from "next/link";
-
-import dayz from "dayjs";
+import Layout from "../components/Layout";
+import { fade, scaleUp } from "../lib/variants";
+import spaceX from "../services/spaceX";
 
 export default function Launches({ launches, rockets }) {
 	const renderRocket = (id) => {
@@ -76,7 +77,10 @@ export default function Launches({ launches, rockets }) {
 	return (
 		<Layout title='Launches 🥏' pageTitle='SpaceX - Launches 🥏'>
 			<div className='grid w-full place-items-center'>
-				<table
+				<motion.table
+					variants={fade}
+					initial='init'
+					animate='anim'
 					{...getTableProps()}
 					className='w-full overflow-auto text-center border-collapse rounded select-none'>
 					<thead className='text-xs sm:text-base'>
@@ -94,20 +98,27 @@ export default function Launches({ launches, rockets }) {
 						{page.map((row, i) => {
 							prepareRow(row);
 							return (
-								<tr
+								<motion.tr
+									variants={scaleUp}
 									className='border-b border-gray-500 hover:bg-gray-600 sm:border-none'
 									{...row.getRowProps()}>
 									{row.cells.map((cell) => {
 										return (
-											<td className="py-2" {...cell.getCellProps()}>{cell.render("Cell")}</td>
+											<td className='py-2' {...cell.getCellProps()}>
+												{cell.render("Cell")}
+											</td>
 										);
 									})}
-								</tr>
+								</motion.tr>
 							);
 						})}
 					</tbody>
-				</table>
-				<div className='w-full py-3 mt-5 border border-gray-500 rounded-tr-full rounded-bl-full'>
+				</motion.table>
+				<motion.div
+					variants={scaleUp}
+					initial='init'
+					animate='anim'
+					className='w-full py-3 mt-5 border border-gray-500 rounded-tr-full rounded-bl-full'>
 					<section className='flex justify-center space-x-3'>
 						<button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
 							{"<<"}
@@ -152,7 +163,7 @@ export default function Launches({ launches, rockets }) {
 							</select>
 						</div>
 					</section>
-				</div>
+				</motion.div>
 			</div>
 		</Layout>
 	);

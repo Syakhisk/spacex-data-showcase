@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 import Layout from "../../components/Layout";
 import RocketContainer from "../../components/RocketContainer";
+import { parent } from "../../lib/variants";
 import spaceX from "../../services/spaceX";
-import Image from "next/image";
 
 export default function Rockets({ rockets }) {
 	const [activeImage, setActiveImage] = useState("");
@@ -34,7 +35,11 @@ export default function Rockets({ rockets }) {
 			</div>
 
 			<motion.div>
-				<div className='grid grid-cols-1 gap-12 lg:grid-cols-2'>
+				<motion.div
+					variants={parent}
+					initial='init'
+					animate='anim'
+					className='grid grid-cols-1 gap-12 lg:grid-cols-2'>
 					{rockets.map((item, idx) => (
 						<RocketContainer
 							handleBgChange={handleBgChange}
@@ -42,7 +47,7 @@ export default function Rockets({ rockets }) {
 							idx={idx}
 						/>
 					))}
-				</div>
+				</motion.div>
 			</motion.div>
 		</Layout>
 	);
