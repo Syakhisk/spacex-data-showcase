@@ -1,15 +1,12 @@
 @tailwind base;
 
 @layer base {
-	div#__next,
 	html,
-	body {
+	body,
+	body > div:first-child,
+	div#__next,
+	div#__next > div {
 		height: 100%;
-		width: 100%;
-	}
-
-	div#__next {
-		@apply h-screen
 	}
 
 	body {
