@@ -8,6 +8,10 @@
 		width: 100%;
 	}
 
+	div#__next {
+		@apply h-screen
+	}
+
 	body {
 		@apply bg-gray-800 text-white;
 	}
