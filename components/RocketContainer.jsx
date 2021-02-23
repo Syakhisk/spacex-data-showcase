@@ -41,7 +41,7 @@ export default function RocketContainer(props) {
 						className='relative z-10 font-mono text-3xl font-bold text-gray-300 group-hover:text-white'>
 						{item.name}
 					</motion.h2>
-					<div className='flex justify-center'>
+					<div className='relative z-10 flex justify-center'>
 						<span className='mr-2 text-sm text-gray-500 group-hover:text-white'>
 							First Flight:
 						</span>
