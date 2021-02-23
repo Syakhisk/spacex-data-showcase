@@ -12,7 +12,7 @@ function SingleRocket(props) {
 			pageTitle={`${rocket.name} - Rocket`}
 			title='Rockets 🚀'
 			back='/rockets'
-			className='flex flex-col overflow-hidden'>
+			className='flex flex-col'>
 			<article className='grid w-full grid-cols-1 p-5 bg-gray-900 lg:grid-cols-2 rounded-2xl'>
 				<motion.aside
 					variants={parent}

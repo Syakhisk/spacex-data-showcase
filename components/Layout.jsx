@@ -68,7 +68,7 @@ export default function Layout(props) {
 							variants={scaleUp}
 							initial='init'
 							animate='anim'
-							className='relative z-50 flex justify-center mt-3 space-x-3 md:text-sm text-xs text-center text-gray-400'>
+							className='relative z-50 flex flex-col justify-center my-3 space-x-3 text-xs text-center text-gray-400 md:text-sm md:flex-row'>
 							<span>Created with ♥</span>
 							<a
 								href='https://github.com/Syakhisk'
